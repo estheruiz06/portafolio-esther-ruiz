@@ -36,7 +36,9 @@ const profile = {
             <span class="thick-text">PORTAFOLIO</span>
             <span class="thick-text">ARTISTICO</span>
           </h1>
-          <p class="font-signature absolute top-full left-1/2 -translate-x-1/2 -translate-y-8 text-pink-300 text-[7.5rem] md:text-[8.5rem] leading-none whitespace-nowrap z-30 pointer-events-none">
+          <p
+            class="font-signature absolute top-full left-1/2 -translate-x-1/2 -translate-y-5 sm:-translate-y-8 text-pink-300 text-[clamp(3rem,18vw,6.5rem)] md:text-[8.5rem] leading-none whitespace-normal md:whitespace-nowrap text-center max-w-[92vw] z-30 pointer-events-none"
+          >
             Esther Ruiz
           </p>
         </div>

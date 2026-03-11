@@ -86,16 +86,16 @@ const imagenAnterior = () => {
 
 <template>
   <section class="relative min-h-screen w-full bg-black text-white font-sans px-4 sm:px-6 md:px-16 pt-3 md:pt-6 pb-6 md:pb-10">
-    <header class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 z-50 bg-amber-50/90 text-black rounded-md px-4 sm:px-6 md:px-10 py-3 mb-10 md:mb-16">
-      <div class="uppercase tracking-widest text-xs md:text-sm font-bold">
+    <header class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 z-50 bg-amber-50/90 text-black rounded-md px-5 sm:px-6 md:px-10 py-4 sm:py-3 mb-10 md:mb-16">
+      <div class="uppercase tracking-widest text-xs md:text-sm font-bold w-full sm:w-auto pb-1 sm:pb-0">
         <span class="text-base sm:text-lg md:text-xl leading-none font-black">{{ profile.name }}</span>
       </div>
 
-      <nav class="w-full sm:w-auto flex flex-wrap justify-start sm:justify-end gap-2 md:gap-4">
-        <router-link to="/" class="nav-box">Inicio</router-link>
-        <router-link to="/trabajos" class="nav-box nav-box-active">Trabajos</router-link>
-        <router-link to="/sobremi" class="nav-box">Sobre mi</router-link>
-        <router-link to="/contacto" class="nav-box">Contacto</router-link>
+      <nav class="w-full sm:w-auto grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-end md:gap-4">
+        <router-link to="/" class="nav-box w-full text-center">Inicio</router-link>
+        <router-link to="/trabajos" class="nav-box nav-box-active w-full text-center">Trabajos</router-link>
+        <router-link to="/sobremi" class="nav-box w-full text-center">Sobre mi</router-link>
+        <router-link to="/contacto" class="nav-box w-full text-center">Contacto</router-link>
       </nav>
     </header>
 
@@ -219,8 +219,9 @@ const imagenAnterior = () => {
 
 @media (max-width: 480px) {
   .nav-box {
-    padding: 6px 10px;
+    padding: 8px 10px;
     font-size: 0.65rem;
+    letter-spacing: 0.08em;
   }
 }
 </style>

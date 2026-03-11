@@ -85,13 +85,13 @@ const imagenAnterior = () => {
 </script>
 
 <template>
-  <section class="relative min-h-screen w-full bg-black text-white font-sans px-6 md:px-16 pt-3 md:pt-6 pb-6 md:pb-10">
-    <header class="w-full flex justify-between items-center z-50 bg-amber-50/90 text-black rounded-md px-8 md:px-10 py-3 mb-16">
+  <section class="relative min-h-screen w-full bg-black text-white font-sans px-4 sm:px-6 md:px-16 pt-3 md:pt-6 pb-6 md:pb-10">
+    <header class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 z-50 bg-amber-50/90 text-black rounded-md px-4 sm:px-6 md:px-10 py-3 mb-10 md:mb-16">
       <div class="uppercase tracking-widest text-xs md:text-sm font-bold">
-        <span class="text-sm md:text-xl leading-none font-black">{{ profile.name }}</span>
+        <span class="text-base sm:text-lg md:text-xl leading-none font-black">{{ profile.name }}</span>
       </div>
 
-      <nav class="flex gap-3 md:gap-4">
+      <nav class="w-full sm:w-auto flex flex-wrap justify-start sm:justify-end gap-2 md:gap-4">
         <router-link to="/" class="nav-box">Inicio</router-link>
         <router-link to="/trabajos" class="nav-box nav-box-active">Trabajos</router-link>
         <router-link to="/sobremi" class="nav-box">Sobre mi</router-link>
@@ -99,11 +99,13 @@ const imagenAnterior = () => {
       </nav>
     </header>
 
-    <div class="mb-16">
+    <div class="mb-10 md:mb-16">
       <router-link to="/trabajos" class="text-brand-pink font-mono text-xs uppercase tracking-widest hover:underline">
         ← Volver a proyectos
       </router-link>
-      <h1 class="section-title text-brand-pink text-7xl mt-4">Diseño editorial</h1>
+      <h1 class="section-title text-brand-pink text-4xl sm:text-6xl md:text-7xl leading-[0.95] mt-4">
+        Diseño editorial
+      </h1>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -122,18 +124,20 @@ const imagenAnterior = () => {
           />
         </div>
         <div class="p-5">
-          <h3 class="section-title text-4xl uppercase tracking-[0.08em] text-brand-pink">{{ proyecto.titulo }}</h3>
+          <h3 class="section-title text-3xl sm:text-4xl uppercase tracking-[0.08em] text-brand-pink">
+            {{ proyecto.titulo }}
+          </h3>
         </div>
       </article>
     </div>
 
     <div
       v-if="proyectoActual"
-      class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-6"
+      class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
       @click="proyectoSeleccionado = null"
     >
       <div
-        class="max-w-3xl w-full bg-neutral-900 p-8 rounded-3xl border border-brand-pink/30"
+        class="max-w-3xl w-full bg-neutral-900 p-5 sm:p-8 rounded-3xl border border-brand-pink/30 my-6 max-h-[90vh] overflow-y-auto"
         @click.stop
       >
         <div v-if="imagenModalActual" class="mb-6">
@@ -141,7 +145,7 @@ const imagenAnterior = () => {
             <img
               :src="imagenModalActual"
               :alt="`Detalle ${proyectoActual.titulo}`"
-              class="w-auto h-[420px] md:h-[520px] object-contain"
+              class="w-full max-h-[55vh] sm:max-h-[65vh] object-contain"
             />
             <div
               v-if="(proyectoActual.imagenes?.length ?? 0) > 1"
@@ -149,13 +153,13 @@ const imagenAnterior = () => {
             >
               <button
                 @click="imagenAnterior"
-                class="px-3 py-1 rounded-md bg-black/70 text-amber-50 text-xs uppercase tracking-widest"
+                class="px-4 py-2 rounded-md bg-black/70 text-amber-50 text-xs uppercase tracking-widest"
               >
                 Anterior
               </button>
               <button
                 @click="imagenSiguiente"
-                class="px-3 py-1 rounded-md bg-black/70 text-amber-50 text-xs uppercase tracking-widest"
+                class="px-4 py-2 rounded-md bg-black/70 text-amber-50 text-xs uppercase tracking-widest"
               >
                 Siguiente
               </button>
@@ -163,10 +167,10 @@ const imagenAnterior = () => {
           </div>
         </div>
 
-        <h2 class="section-title text-5xl font-black text-brand-pink uppercase mb-4">
+        <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-black text-brand-pink uppercase mb-4">
           {{ proyectoActual.titulo }}
         </h2>
-        <p class="text-neutral-300 text-lg md:text-xl font-light leading-relaxed max-w-2xl opacity-90">
+        <p class="text-neutral-300 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl opacity-90">
           {{ proyectoActual.descripcion }}
         </p>
         <button
@@ -211,5 +215,12 @@ const imagenAnterior = () => {
   background-color: black;
   color: #fbcfe8;
   border-color: black;
+}
+
+@media (max-width: 480px) {
+  .nav-box {
+    padding: 6px 10px;
+    font-size: 0.65rem;
+  }
 }
 </style>
